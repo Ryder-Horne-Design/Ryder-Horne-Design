@@ -68,8 +68,8 @@ export async function metadata({
       card: "summary_large_image",
       title,
       description,
-      site: "@ryderhdesign",
-      creator: "@ryderhdesign",
+      site: "@rhd_az",
+      creator: "@rhd_az",
       images,
     },
     icons: {
