@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import { type MetadataRoute } from "next";
 
 const base = "https://ryderhorne.design";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

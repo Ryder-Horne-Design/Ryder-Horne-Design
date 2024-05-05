@@ -6,11 +6,11 @@ import { cn } from "~/lib/utils";
 const AccordionTypeContext = createContext<AccordionType>("single");
 const OpenContext = createContext<[string, Dispatch<SetStateAction<string>>]>(["", () => ""]);
 export type AccordionType = "single" | "multiple";
-export const Accordion = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListElement> & {
+const Accordion = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListElement> & {
   type: AccordionType,
 }>(function({ className, type, children, ...props }, ref) {
+  const valueState = useState<string>("");
   if (type === "single") {
-    const valueState = useState<string>("");
     return (
       <ul ref={ref} className={cn("flex flex-col flex-wrap w-full", className)} {...props}>
         <AccordionTypeContext.Provider value={type}>
@@ -29,10 +29,11 @@ export const Accordion = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLU
     </ul>
   );
 });
+Accordion.displayName = "Accordion";
 
 const values = new Set<string>();
 const ValueContext = createContext<string>("");
-export const AccordionItem = forwardRef<HTMLLIElement, React.LiHTMLAttributes<HTMLLIElement> & {
+const AccordionItem = forwardRef<HTMLLIElement, React.LiHTMLAttributes<HTMLLIElement> & {
   value: string,
 }>(function({ className, children, value, ...props }, ref) {
   const type = useContext(AccordionTypeContext);
@@ -40,8 +41,8 @@ export const AccordionItem = forwardRef<HTMLLIElement, React.LiHTMLAttributes<HT
     console.warn("AccordionItem value must be unique");
   };
   values.add(value);
+  const valueState = useState<string>("");
   if (type === "multiple") {
-    const valueState = useState<string>("");
     return (
       <li ref={ref} className={cn("flex flex-col flex-wrap gap-2", className)} {...props}>
         <ValueContext.Provider value={value}>
@@ -60,8 +61,9 @@ export const AccordionItem = forwardRef<HTMLLIElement, React.LiHTMLAttributes<HT
     </li>
   );
 });
+AccordionItem.displayName = "AccordionItem";
 
-export const AccordionTrigger = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(function({ className, children, onClick, ...props }, ref) {
+const AccordionTrigger = forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement>>(function({ className, children, onClick, ...props }, ref) {
   const [open, setOpen] = useContext(OpenContext);
   const value = useContext(ValueContext);
   return (
@@ -80,7 +82,8 @@ export const AccordionTrigger = forwardRef<HTMLButtonElement, React.ButtonHTMLAt
     </button>
   );
 });
-export const AccordionContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function({ className, ...props }, ref) {
+AccordionTrigger.displayName = "AccordionTrigger";
+const AccordionContent = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(function({ className, ...props }, ref) {
   const accordionType = useContext(AccordionTypeContext);
   const [open] = useContext(OpenContext);
   const value = useContext(ValueContext);
@@ -116,9 +119,12 @@ export const AccordionContent = forwardRef<HTMLDivElement, React.HTMLAttributes<
         };
       };
     };
-  }, [outerDivRef, outerDivRef.current, open]);
+  }, [outerDivRef, open, value]);
 
   return (
     <div ref={outerDivRef} aria-hidden={open !== value} aria-selected={accordionType === "single" ? open === value : undefined} className={cn("text-sm text-slate-900/70 transition-[max-height,padding] duration-300 overflow-y-clip", className, open !== value && "max-h-0 py-0", open === value && "max-h-[var(--mh)]")} {...props} />
   );
 });
+AccordionContent.displayName = "AccordionContent";
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };

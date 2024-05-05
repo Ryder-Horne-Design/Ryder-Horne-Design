@@ -4,7 +4,7 @@ import { cn } from "~/lib/utils";
 import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./accordion";
-import { Logo } from "./logo";
+import { Logo } from "./logos";
 
 export const linkClass = "px-6 py-3 flex items-center w-max gap-1 bg-transparent transition-colors duration-300 hover:bg-slate-900 focus:bg-slate-900 hover:text-slate-50 focus:text-slate-50 rounded-full text-base text-slate-900";
 

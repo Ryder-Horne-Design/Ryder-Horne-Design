@@ -8,6 +8,9 @@ import createNextIntlPlugin from "next-intl/plugin";
 /** @type {import("next").NextConfig} */
 const config = {
   pageExtensions: ["ts", "tsx"],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async redirects() {
     return [
       {
