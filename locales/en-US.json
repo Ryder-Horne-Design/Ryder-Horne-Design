@@ -1,0 +1,49 @@
+{
+  "name": "Ryder Horne Design",
+  "description": "Ryder Horne Design is an agency which makes brilliant web design ideas easy to accomplish.",
+  "alt": "Ryder Horne Design logo, containing a blue to green gradient with coding brackets in the middle.",
+  "home": "Home",
+  "portfolio": {
+    "name": "Portfolio",
+    "description": "We have collected all of our best work to show you what we can do and show you that you can trust us.",
+    "view": "View our portfolio"
+  },
+  "services": {
+    "name": "Services",
+    "description": "Our agency offers many services to tailor to your needs.",
+    "design": "Web Design",
+    "development": "Website Development",
+    "shopify": "Shopify Theme Design",
+    "seo": "Search Engine Optimization"
+  },
+  "contact": {
+    "name": "Contact Us",
+    "description": "We have various methods of contact to ensure you can easily reach out to us about <italics>anything</italics>.",
+    "form": "Contact form",
+    "email": "Email us at contact@ryderhorne.design",
+    "call": "Call us at +1 (602) 743-9811",
+    "instagram": "Message us on Instagram at @ryderhornedesign",
+    "x": "Message us on X (previously Twitter) at @rhd_az",
+    "facebook": "Message us on Facebook at @ryderhornedesign",
+    "tiktok": "Message us on TikTok at @ryderhornedesign"
+  },
+  "sitemap": {
+    "name": "Sitemap",
+    "description": "A list of every page on the Ryder Horne Design website.",
+    "here": "You are here"
+  },
+  "menu": "Menu",
+  "close": "Close Menu",
+  "404": {
+    "name": "Page Not Found",
+    "description": "The page you're looking for doesn't exist.",
+    "alt": "Page Not Found (404 error)",
+    "back": "Go Back Home"
+  },
+  "error": {
+    "name": "Error Page",
+    "description": "You have encountered an error on this page.",
+    "alt": "Server or client error"
+  },
+  "copyright": "Copyright © {year} Ryder Horne Design. All rights reserved."
+}
