@@ -31,7 +31,7 @@ export default function Home() {
         </main>
         <aside
           className={cn(
-            "relative grid grid-cols-3 gap-2 overflow-x-scroll sm:overflow-x-visible text-slate-900 sm:flex sm:justify-center sm:items-center sm:py-16 lg:basis-1/2",
+            "relative grid grid-cols-[repeat(3,1fr)] gap-2 overflow-x-scroll sm:overflow-x-visible text-slate-900 sm:flex sm:justify-center sm:items-center sm:py-16 lg:basis-1/2",
             handwritten.className,
           )}
         >
