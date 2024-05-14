@@ -1,12 +1,27 @@
 {
   "name": "Ryder Horne Design",
   "description": "Ryder Horne Design is an agency which makes brilliant web design ideas easy to accomplish.",
+  "hero": {
+    "title": "Web design is hard. We make it easy.",
+    "description": "At Ryder Horne Design, our agency works hard to make sure your digital presence is the best in your local industry. From web design to search engine optimization (SEO for short), we offer many services to make sure you will be successful in your online endeavors.",
+    "view": "View our portfolio",
+    "websites": {
+      "sr": "Sabercat Robotics",
+      "sis": "Sisters in STEM",
+      "pcb": "Petite Curio Boutique"
+    }
+  },
   "alt": "Ryder Horne Design logo, containing a blue to green gradient with coding brackets in the middle.",
-  "home": "Home",
+  "home": {
+    "title": "Home",
+    "services": {
+      "title": "Our services",
+      "description": "We offer a variety of services to help you build your digital presence and make sure you're as successful as possible."
+    }
+  },
   "portfolio": {
     "name": "Portfolio",
-    "description": "We have collected all of our best work to show you what we can do and show you that you can trust us.",
-    "view": "View our portfolio"
+    "description": "We have collected all of our best work to show you what we can do and show you that you can trust us."
   },
   "services": {
     "name": "Services",
@@ -37,13 +52,12 @@
   "404": {
     "name": "Page Not Found",
     "description": "The page you're looking for doesn't exist.",
-    "alt": "Page Not Found (404 error)",
     "back": "Go Back Home"
   },
   "error": {
     "name": "Error Page",
     "description": "You have encountered an error on this page.",
-    "alt": "Server or client error"
+    "reload": "Reload the page"
   },
   "copyright": "Copyright © {year} Ryder Horne Design. All rights reserved."
 }

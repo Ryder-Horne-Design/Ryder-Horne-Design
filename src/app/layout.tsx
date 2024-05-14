@@ -36,9 +36,9 @@ export default function RootLayout({
   locale = locale ?? defaultLocale;
 
   return (
-    <html className="scroll-smooth bg-slate-50 selection:bg-slate-200/60" lang={locale}>
-      <body className={cn("flex flex-col flex-wrap min-h-screen text-lg text-slate-900 fill-slate-900", GeistSansNonVariable.className, GeistMonoNonVariable.variable)}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+    <html className="scroll-smooth bg-slate-50 selection:bg-slate-200/60 subpixel-antialiased" lang={locale}>
+      <body className={cn("flex flex-col min-h-screen text-lg text-slate-900 fill-slate-900", GeistSansNonVariable.className, GeistMonoNonVariable.variable)}>
+        <NextIntlClientProvider locale={locale} messages={pick(messages, "name", "menu", "home", "portfolio.name", "services.name", "services.contact", "services.design", "services.development", "services.shopify", "services.seo", "contact.name", "contact.description", "contact.form", "contact.email", "contact.call", "contact.instagram", "contact.x", "contact.facebook", "contact.tiktok", "sitemap.name", "close")}>
           <Header />
         </NextIntlClientProvider>
         <TRPCReactProvider>
@@ -46,7 +46,7 @@ export default function RootLayout({
             {children}
           </NextIntlClientProvider>
         </TRPCReactProvider>
-        <NextIntlClientProvider locale={locale} messages={pick(messages, "")}>
+        <NextIntlClientProvider locale={locale} messages={pick(messages, "name", "home", "portfolio.name", "services.name", "contact.name", "sitemap.name", "copyright")}>
           <Footer />
         </NextIntlClientProvider>
       </body>

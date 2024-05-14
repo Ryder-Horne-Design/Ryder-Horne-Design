@@ -12,7 +12,7 @@ const Accordion = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListEle
   const valueState = useState<string>("");
   if (type === "single") {
     return (
-      <ul ref={ref} className={cn("flex flex-col flex-wrap w-full", className)} {...props}>
+      <ul ref={ref} className={cn("flex flex-col w-full", className)} {...props}>
         <AccordionTypeContext.Provider value={type}>
           <OpenContext.Provider value={valueState}>
             {children}
@@ -22,7 +22,7 @@ const Accordion = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListEle
     );
   };
   return (
-    <ul ref={ref} className={cn("flex flex-col flex-wrap w-full", className)} {...props}>
+    <ul ref={ref} className={cn("flex flex-col w-full", className)} {...props}>
       <AccordionTypeContext.Provider value={type}>
         {children}
       </AccordionTypeContext.Provider>
@@ -44,7 +44,7 @@ const AccordionItem = forwardRef<HTMLLIElement, React.LiHTMLAttributes<HTMLLIEle
   const valueState = useState<string>("");
   if (type === "multiple") {
     return (
-      <li ref={ref} className={cn("flex flex-col flex-wrap gap-2", className)} {...props}>
+      <li ref={ref} className={cn("flex flex-col gap-2", className)} {...props}>
         <ValueContext.Provider value={value}>
           <OpenContext.Provider value={valueState}>
             {children}
@@ -54,7 +54,7 @@ const AccordionItem = forwardRef<HTMLLIElement, React.LiHTMLAttributes<HTMLLIEle
     );
   };
   return (
-    <li ref={ref} className={cn("flex flex-col flex-wrap gap-2", className)} {...props}>
+    <li ref={ref} className={cn("flex flex-col gap-2", className)} {...props}>
       <ValueContext.Provider value={value}>
         {children}
       </ValueContext.Provider>

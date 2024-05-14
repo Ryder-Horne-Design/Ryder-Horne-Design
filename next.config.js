@@ -32,11 +32,6 @@ const config = {
         permanent: true,
       },
       {
-        source: "/contact/call",
-        destination: "tel:+1 (602) 743-9811",
-        permanent: false,
-      },
-      {
         source: "/contact/instagram",
         destination: "https://www.instagram.com/ryderhornedesign",
         permanent: true,
