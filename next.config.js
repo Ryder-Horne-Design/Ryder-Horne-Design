@@ -17,11 +17,6 @@ const config = {
   async redirects() {
     return [
       {
-        source: "/home",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/contact/form",
         destination: "/contact",
         permanent: true,

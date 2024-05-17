@@ -3,25 +3,44 @@
   "description": "Ryder Horne Design is an agency which makes brilliant web design ideas easy to accomplish.",
   "hero": {
     "title": "Web design is hard. We make it easy.",
-    "description": "At Ryder Horne Design, our agency works hard to make sure your digital presence is the best in your local industry. From web design to search engine optimization (SEO for short), we offer many services to make sure you will be successful in your online endeavors.",
-    "view": "View our portfolio",
-    "websites": {
-      "sr": "Sabercat Robotics",
-      "sis": "Sisters in STEM",
-      "pcb": "Petite Curio Boutique"
-    }
+    "description": "At Ryder Horne Design, our agency works hard to make sure your digital presence is the best in your local industry. From web design to search engine optimization, we offer many services to make sure you will be successful in your online endeavors.",
+    "view": "View our portfolio"
   },
   "alt": "Ryder Horne Design logo, containing a blue to green gradient with coding brackets in the middle.",
   "home": {
     "title": "Home",
     "services": {
       "title": "Our services",
-      "description": "We offer a variety of services to help you build your digital presence and make sure you're as successful as possible."
+      "description": "We offer a variety of services to help you build your digital presence and make sure you're as successful as possible.",
+      "alt": "Three women smiling and looking at a MacBook Pro"
+    },
+    "portfolio": {
+      "title": "Our portfolio",
+      "description": "We want you to trust us. That is why we have collected the best of our work and compiled it for your viewing, making it easy for you to see what we're capable of."
+    },
+    "contact": {
+      "title": "Interested in working with us?",
+      "description": "Contact us easily using our contact form, or the various methods listed on the page below.",
+      "alt": "Woman typing on a MacBook Pro"
     }
   },
   "portfolio": {
     "name": "Portfolio",
-    "description": "We have collected all of our best work to show you what we can do and show you that you can trust us."
+    "description": "We have collected all of our best work to show you what we can do and show you that you can trust us.",
+    "websites": {
+      "sr": {
+        "title": "Sabercat Robotics",
+        "description": "Sabercat Robotics is a high school robotics program that teaches students many real-life skills, including programming, robotics, and engineering."
+      },
+      "sis": {
+        "title": "Sisters in STEM",
+        "description": "Sabercat Robotics is a high school robotics program that teaches students many real-life skills, including programming, robotics, and engineering."
+      },
+      "pcb": {
+        "title": "Petite Curio Boutique",
+        "description": "Sabercat Robotics is a high school robotics program that teaches students many real-life skills, including programming, robotics, and engineering."
+      }
+    }
   },
   "services": {
     "name": "Services",

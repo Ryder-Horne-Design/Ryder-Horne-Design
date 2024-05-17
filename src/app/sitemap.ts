@@ -5,8 +5,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     {
       url: base,
-      lastModified: new Date("2024-05-04"),
-      changeFrequency: "weekly",
+      lastModified: new Date("2024-05-16"),
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
@@ -18,43 +18,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${base}/services`,
       lastModified: new Date("2022-10-01"),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${base}/services/design`,
       lastModified: new Date("2022-10-01"),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.64,
     },
     {
       url: `${base}/services/development`,
       lastModified: new Date("2022-10-01"),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.64,
     },
-    // {
-    //   url: `${base}/services/shopify`,
-    //   lastModified: new Date("2022-10-01"),
-    //   changeFrequency: "daily",
-    //   priority: 0.64,
-    // },
+    {
+      url: `${base}/services/shopify`,
+      lastModified: new Date("2022-10-01"),
+      changeFrequency: "monthly",
+      priority: 0.64,
+    },
     {
       url: `${base}/services/seo`,
       lastModified: new Date("2022-10-01"),
-      changeFrequency: "daily",
+      changeFrequency: "monthly",
       priority: 0.64,
     },
     {
       url: `${base}/contact`,
       lastModified: new Date("2022-10-01"),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${base}/sitemap`,
       lastModified: new Date("2024-05-04"),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.8,
     },
   ];
