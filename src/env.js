@@ -8,6 +8,10 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    GMAIL_CLIENT_ID: z.string().endsWith(".apps.googleusercontent.com"),
+    GMAIL_CLIENT_SECRET: z.string(),
+    GMAIL_REFRESH_TOKEN: z.string().startsWith("1/"),
+    GMAIL_ACCESS_TOKEN: z.string().startsWith("ya29."),
   },
 
   /**
@@ -25,6 +29,10 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    GMAIL_CLIENT_ID: process.env.GMAIL_CLIENT_ID,
+    GMAIL_CLIENT_SECRET: process.env.GMAIL_CLIENT_SECRET,
+    GMAIL_REFRESH_TOKEN: process.env.GMAIL_REFRESH_TOKEN,
+    GMAIL_ACCESS_TOKEN: process.env.GMAIL_ACCESS_TOKEN,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

@@ -8,6 +8,7 @@ import { type Params, metadata } from "~/components/metadata";
 import { defaultLocale } from "~/locales.config";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { pick } from "lodash";
+import { Toaster } from "~/components/ui/sonner";
 
 export async function generateMetadata({
   params,
@@ -38,7 +39,7 @@ export default function RootLayout({
   return (
     <html className="scroll-smooth bg-slate-50 selection:bg-slate-200/60 subpixel-antialiased" lang={locale}>
       <body className={cn("flex flex-col min-h-screen text-lg text-slate-900 fill-slate-900", GeistSansNonVariable.className, GeistMonoNonVariable.variable)}>
-        <NextIntlClientProvider locale={locale} messages={pick(messages, "name", "menu", "home", "portfolio.name", "services.name", "services.contact", "services.design", "services.development", "services.shopify", "services.seo", "contact.name", "contact.description", "contact.form", "contact.email", "contact.call", "contact.instagram", "contact.x", "contact.facebook", "contact.tiktok", "sitemap.name", "close")}>
+        <NextIntlClientProvider locale={locale} messages={pick(messages, "name", "menu", "home", "portfolio.name", "services.name", "services.contact", "services.design", "services.development", "services.shopify", "services.seo", "contact.name", "contact.description", "contact.form.title", "contact.email", "contact.call", "contact.instagram", "contact.x", "contact.facebook", "contact.tiktok", "sitemap.name", "close")}>
           <Header />
         </NextIntlClientProvider>
         <TRPCReactProvider>
@@ -49,6 +50,7 @@ export default function RootLayout({
         <NextIntlClientProvider locale={locale} messages={pick(messages, "name", "home", "portfolio.name", "services.name", "contact.name", "sitemap.name", "copyright")}>
           <Footer />
         </NextIntlClientProvider>
+        <Toaster />
       </body>
     </html>
   );

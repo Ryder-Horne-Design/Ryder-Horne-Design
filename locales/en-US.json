@@ -52,8 +52,131 @@
   },
   "contact": {
     "name": "Contact Us",
-    "description": "We have various methods of contact to ensure you can easily reach out to us about <italics>anything</italics>.",
-    "form": "Contact form",
+    "description": "We have various methods of contact to ensure you can easily reach out to us about anything.",
+    "form": {
+      "title": "Contact Form",
+      "description": "Contact us about any questions or concerns you may have.",
+      "name": {
+        "first": {
+          "label": "First name",
+          "placeholder": "John",
+          "description": "Your first name, or the name you prefer to go by.",
+          "error": "Your first name must be at least 2 characters long."
+        },
+        "last": {
+          "label": "Last name",
+          "placeholder": "Doe",
+          "description": "Your legal last name.",
+          "error": "Your last name must be at least 2 characters long."
+        }
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "john.doe@example.com",
+        "description": "The email address you want us to contact you at.",
+        "error": "Your email address must be a valid email address."
+      },
+      "country": {
+        "label": "Country",
+        "description": "The country you live in.",
+        "options": {
+          "us": "United States",
+          "ca": "Canada",
+          "uk": "United Kingdom",
+          "de": "Germany",
+          "fr": "France",
+          "es": "Spain",
+          "it": "Italy",
+          "au": "Australia",
+          "jp": "Japan",
+          "in": "India",
+          "br": "Brazil",
+          "mx": "Mexico",
+          "ch": "Switzerland",
+          "se": "Sweden",
+          "dk": "Denmark",
+          "no": "Norway",
+          "pl": "Poland",
+          "nl": "Netherlands",
+          "be": "Belgium",
+          "at": "Austria",
+          "fi": "Finland",
+          "nz": "New Zealand",
+          "tr": "Turkey",
+          "hu": "Hungary",
+          "ro": "Romania",
+          "sg": "Singapore",
+          "cn": "China",
+          "kr": "South Korea",
+          "tw": "Taiwan",
+          "th": "Thailand",
+          "id": "Indonesia",
+          "ar": "Argentina",
+          "cl": "Chile",
+          "pe": "Peru",
+          "ua": "Ukraine",
+          "cz": "Czech Republic",
+          "gr": "Greece",
+          "pt": "Portugal",
+          "ve": "Venezuela",
+          "co": "Colombia",
+          "ph": "Philippines",
+          "vn": "Vietnam",
+          "il": "Israel",
+          "ae": "United Arab Emirates",
+          "sa": "Saudi Arabia",
+          "eg": "Egypt",
+          "bd": "Bangladesh",
+          "lk": "Sri Lanka",
+          "my": "Malaysia",
+          "hk": "Hong Kong",
+          "other": "Other"
+        },
+        "error": "You must input a valid country."
+      },
+      "website": {
+        "label": "Your Current Website",
+        "placeholder": "https://example.com",
+        "description": "Your current website, if you have one.",
+        "error": "Your website must be a valid URL."
+      },
+      "business": {
+        "label": "Your Business",
+        "placeholder": "Our business \"Ryder Horne Design\" is a web design and development agency that...",
+        "description": "Details about your business.",
+        "error": "Your business description must be at least 8 characters long."
+      },
+      "project": {
+        "label": "Your Project",
+        "placeholder": "We are looking for a website that shows our creativity and our passion for design.",
+        "description": "Details about your project.",
+        "error": "Your project description must be at least 8 characters long."
+      },
+      "services": {
+        "label": "Services You're Interested In",
+        "description": "Select all of the services you're interested in.",
+        "error": "You must select at least one service."
+      },
+      "submit": "Submit",
+      "status": {
+        "pending": {
+          "title": "Sending...",
+          "description": "Our server is working on sending your message."
+        },
+        "success": {
+          "title": "Thank you!",
+          "description": "We've received your message and will be in touch soon."
+        },
+        "error": {
+          "title": "Error",
+          "description": "Something went wrong. Please try again."
+        }
+      }
+    },
+    "other": {
+      "title": "Other Forms of Contact",
+      "description": "If you have any other questions or concerns, please contact us using the methods listed below."
+    },
     "email": "Email us at contact@ryderhorne.design",
     "call": "Call us at +1 (602) 743-9811",
     "instagram": "Message us on Instagram at @ryderhornedesign",
