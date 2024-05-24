@@ -183,7 +183,7 @@ export function ContactForm() {
                   return (
                     <FormItem
                       key={service}
-                      className="flex flex-row items-start space-x-3 space-y-0"
+                      className="flex items-start space-y-0 gap-2"
                     >
                       <FormControl>
                         <Checkbox
@@ -200,7 +200,7 @@ export function ContactForm() {
                         />
                       </FormControl>
                       <FormLabel className="text-sm font-normal">
-                        {useTranslations("services")(service)}
+                        {useTranslations("services")(service + ".name")}
                       </FormLabel>
                     </FormItem>
                   )

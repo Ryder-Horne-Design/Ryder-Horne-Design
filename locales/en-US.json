@@ -45,10 +45,30 @@
   "services": {
     "name": "Services",
     "description": "Our agency offers many services to tailor to your needs.",
-    "design": "Web Design",
-    "development": "Website Development",
-    "shopify": "Shopify Theme Design",
-    "seo": "Search Engine Optimization"
+    "design": {
+      "name": "Web Design",
+      "description": "Ryder Horne Design offers premium web design services to help you create a professional website that is both visually appealing and functional.",
+      "long_description": "Our agency, Ryder Horne Design, wants to make sure you have the best online presence possible. That is why everyday we work to perfect our premium website design services, where we help your website envision your brand through its design. Our web design, along with our other services, will help you and your business not only succeed online, but also stand out from the rest.",
+      "alt": "Two MacBooks displaying work"
+    },
+    "development": {
+      "name": "Website Development",
+      "description": "Ryder Horne Design's website development services allow for you to easily create a unique website tailored specifically to your business.",
+      "long_description": "Our agency's website development services make it easy for you to create a custom website that is tailored to your business needs. We will work with you to make sure that both our time and your time are not wasted when creating your dream website.",
+      "alt": "Two desktops showing code in Visual Studio Code"
+    },
+    "shopify": {
+      "name": "Shopify Theme Design",
+      "description": "Our agency's Shopify theme design services allow you to easily create a custom theme for your Shopify store.",
+      "long_description": "Shopify is a popular e-commerce platform that allows businesses to sell their products online. Our agency provides custom Shopify theme design services to ensure you have a unique online store that stands out from the rest, while also telling your customers the identity of your brand. Whether you need a simple store or a complex one, we can help you create a custom theme that is tailored to your needs.",
+      "alt": "A Shopify store with a custom theme"
+    },
+    "seo": {
+      "name": "Search Engine Optimization",
+      "description": "Ryder Horne Design's SEO services help you optimize your website for search engines, ensuring that it ranks high in search results and attracts more traffic.",
+      "long_description": "Search Engine Optimization, or SEO for short, is the process of optimizing your website to improve its ranking in search engine results pages. Our agency's SEO services help you achieve this by optimizing your website's content, structure, and other factors to make it more search engine friendly. We will work with you to create a custom SEO strategy that is tailored to your specific needs, ensuring that your website is the best it can be in the eyes of search engines.",
+      "alt": "Google home page"
+    }
   },
   "contact": {
     "name": "Contact Us",

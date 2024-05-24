@@ -35,7 +35,7 @@ export default function Contact() {
           <CardDescription>{t("form.description")}</CardDescription>
         </CardHeader>
         <CardContent>
-          <NextIntlClientProvider messages={pick(messages, "contact.form", services.map((service) => "services." + service))}>
+          <NextIntlClientProvider messages={pick(messages, "contact.form", services.map((service) => "services." + service + ".name"))}>
             <ContactForm />
           </NextIntlClientProvider>
         </CardContent>
