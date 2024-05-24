@@ -43,13 +43,13 @@ export default function Home() {
           >
             <Image
               src="/assets/hero/sabercat-robotics.png"
-              alt={t("portfolio.websites.sr.title")}
+              alt={t("portfolio.websites.sr.name")}
               width={1536}
               height={1536}
               sizes="(min-width: 640px) 25vw, 50vw"
               className="w-full bg-slate-200 shadow"
             />
-            <p className="text-center">{t("portfolio.websites.sr.title")}</p>
+            <p className="text-center">{t("portfolio.websites.sr.name")}</p>
           </Link>
           <Link
             href="https://www.sistersinstem.net/"
@@ -59,13 +59,13 @@ export default function Home() {
           >
             <Image
               src="/assets/hero/sisters-in-stem.png"
-              alt={t("portfolio.websites.sis.title")}
+              alt={t("portfolio.websites.sis.name")}
               width={1536}
               height={1536}
               sizes="(min-width: 640px) 25vw, 50vw"
               className="w-full bg-slate-200 shadow"
             />
-            <p className="text-center">{t("portfolio.websites.sis.title")}</p>
+            <p className="text-center">{t("portfolio.websites.sis.name")}</p>
           </Link>
           <Link
             href="https://www.petitecurioboutique.com/"
@@ -75,13 +75,13 @@ export default function Home() {
           >
             <Image
               src="/assets/hero/petite-curio-boutique.png"
-              alt={t("portfolio.websites.pcb.title")}
+              alt={t("portfolio.websites.pcb.name")}
               width={1536}
               height={1536}
               sizes="(min-width: 640px) 25vw, 50vw"
               className="w-full bg-slate-200 shadow"
             />
-            <p className="text-center">{t("portfolio.websites.pcb.title")}</p>
+            <p className="text-center">{t("portfolio.websites.pcb.name")}</p>
           </Link>
         </aside>
       </header>
@@ -173,7 +173,7 @@ export default function Home() {
             width={6016}
             height={4016}
             sizes="(min-width: 1024px) 40vw, 80vw"
-            className="relative rounded-xl border-[6px] border-transparent bg-[linear-gradient(to_bottom_right,#0EA5E9,#34D399)] bg-[length:calc(100%+12px)_calc(100%+12px)] bg-[position:-6px_-6px] bg-no-repeat object-cover shadow lg:basis-1/2"
+            className="rounded-xl border-[6px] border-transparent bg-[linear-gradient(to_bottom_right,#0EA5E9,#34D399)] bg-[length:calc(100%+12px)_calc(100%+12px)] bg-[position:-6px_-6px] bg-no-repeat object-cover shadow lg:basis-1/2"
           />
         </section>
         <section className="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-400 p-4 text-slate-50 shadow lg:p-6">

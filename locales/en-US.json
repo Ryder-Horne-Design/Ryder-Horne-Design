@@ -27,18 +27,27 @@
   "portfolio": {
     "name": "Portfolio",
     "description": "We have collected all of our best work to show you what we can do and show you that you can trust us.",
+    "problem": "The Problem.",
+    "solution": "The Solution.",
+    "visit": "Visit their website",
     "websites": {
+      "pcb": {
+        "name": "Petite Curio Boutique",
+        "description": "Petite Curio Boutique is a small business owned by Lucia Williams that sells antique and vintage items.",
+        "problem": "Petite Curio Boutique was a small business that sold antique and vintage items on Etsy. While Etsy is a useful solution for many businesses to sell their products online, it has a few issues which Petite Curio Boutique encountered, such as lack of customizability, costly fees, and search engine optimization. Petite Curio Boutique needed a solution that would allow for ease of selling while also circumventing these issues, causing them to turn to our agency.",
+        "solution": "Our agency worked with the owner of Petite Curio Boutique, Lucia Williams, to help create a custom website that lowered the fees she had to pay and increased her search engine optimization. This custom website allowed for Petite Curio Boutique to gain more traction on their existing items and help potential customers envision what Petite Curio Boutique was like, causing them to feel nostalgic and at home."
+      },
       "sr": {
-        "title": "Sabercat Robotics",
-        "description": "Sabercat Robotics is a high school robotics program that teaches students many real-life skills, including programming, robotics, and engineering."
+        "name": "Sabercat Robotics",
+        "description": "Sabercat Robotics is a high school robotics program that teaches students many real-life skills, including programming, robotics, and engineering.",
+        "problem": "Sabercat Robotics had a website that they built themselves, which was last updated some time around 2014. While this website was designed to their liking, it was missing features they needed, missing important functionality (such as dead links; links to 404 pages), was not optimized for search engines, and had a poor user experience. Sabercat Robotics needed a website that would be customizable, optimized for search engines, and have a good user experience. Therefore, they turned to our agency and asked for our help in developing a new website.",
+        "solution": "Our agency worked with Sabercat Robotics to help create a custom website that was optimized for search engines, had a good user experience, and was customizable. This custom website caused Sabercat Robotics to gain more traction in search engines, as well as have features they needed, such as a contact form and a blog."
       },
       "sis": {
-        "title": "Sisters in STEM",
-        "description": "Sabercat Robotics is a high school robotics program that teaches students many real-life skills, including programming, robotics, and engineering."
-      },
-      "pcb": {
-        "title": "Petite Curio Boutique",
-        "description": "Sabercat Robotics is a high school robotics program that teaches students many real-life skills, including programming, robotics, and engineering."
+        "name": "Sisters in STEM",
+        "description": "Sisters in STEM is a non-profit organization started by Sabercat Robotics to help young girls (ages 5 - 15) learn STEM skills through fun events and festivals.",
+        "problem": "Sisters in STEM had an existing website which they built using GoDaddy's website builder. While this website was functional, it was not optimized for search engines, had a poor design, and had features that the team at Sisters in STEM did not need or want. GoDaddy's website builder also charged the organization an annual fee that took away from the organization's ability to host events they wanted and spread their message. Sisters in STEM was looking for a new website that would be fit to their liking, meaning good SEO, good design, and only the features they absolutely wanted and needed, while also not costing them hundreds of dollars per year. This led to them turning to our agency and asking for our help in developing a new website that envisioned who Sisters in STEM was, and what they did.",
+        "solution": "Our agency worked with Sisters in STEM to help them optimize their new website for search engines and optimize their new website's design and user experience. We also helped Sisters in STEM set up necessary SEO and analytics tools, such as Google Search Console. This allowed for Sisters in STEM to gain more traction on their new website and analyze this traction to make sure their website was up and working. Because this website had a good design and the features the team needed, Sisters in STEM saw many more contacts and visitors to their website."
       }
     }
   },
