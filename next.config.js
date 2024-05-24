@@ -22,11 +22,6 @@ const config = {
         permanent: true,
       },
       {
-        source: "/contact/email",
-        destination: "mailto:contact@ryderhorne.design",
-        permanent: true,
-      },
-      {
         source: "/contact/instagram",
         destination: "https://www.instagram.com/ryderhornedesign",
         permanent: true,
@@ -58,22 +53,22 @@ const config = {
       },
       {
         source: "/contact/x",
-        destination: "https://twitter.com/rhd_az",
+        destination: "https://x.com/rhd_az",
         permanent: true,
       },
       {
         source: "/x",
-        destination: "https://twitter.com/rhd_az",
+        destination: "https://x.com/rhd_az",
         permanent: true,
       },
       {
         source: "/contact/twitter",
-        destination: "https://twitter.com/rhd_az",
+        destination: "https://x.com/rhd_az",
         permanent: true,
       },
       {
         source: "/twitter",
-        destination: "https://twitter.com/rhd_az",
+        destination: "https://x.com/rhd_az",
         permanent: true,
       },
     ];
