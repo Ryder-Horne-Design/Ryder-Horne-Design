@@ -52,8 +52,8 @@ export default function Portfolio() {
               ))
             }
           </CarouselContent>
-          <CarouselNext className="-right-12" />
-          <CarouselPrevious className="-left-12" />
+          <CarouselNext />
+          <CarouselPrevious />
         </Carousel>
       </main>
     </main>
