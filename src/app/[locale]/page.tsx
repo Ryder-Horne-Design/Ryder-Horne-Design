@@ -146,7 +146,7 @@ export default function Home() {
                 </svg>
                 {t("services.shopify.name")}
               </Link>
-              <Link
+              {/* <Link
                 href="/services/seo"
                 className={cn(linkClass, "bg-slate-50 shadow")}
               >
@@ -164,7 +164,7 @@ export default function Home() {
                   />
                 </svg>
                 {t("services.seo.name")}
-              </Link>
+              </Link> */}
             </main>
           </main>
           <Image
