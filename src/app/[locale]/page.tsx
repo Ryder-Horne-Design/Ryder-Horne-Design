@@ -41,9 +41,7 @@ export default async function Home({ params }: { params: Params }) {
           )}
         >
           <Link
-            href="https://www.sabercatrobotics.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/portfolio/2"
             className="flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow-sm transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105 sm:absolute sm:left-[15%] sm:top-0 sm:-rotate-6"
           >
             <Image
@@ -57,9 +55,7 @@ export default async function Home({ params }: { params: Params }) {
             <p className="text-center">{t("portfolio.websites.sr.name")}</p>
           </Link>
           <Link
-            href="https://www.sistersinstem.net/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/portfolio/3"
             className="z-10 flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow-sm transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105"
           >
             <Image
@@ -73,9 +69,7 @@ export default async function Home({ params }: { params: Params }) {
             <p className="text-center">{t("portfolio.websites.sis.name")}</p>
           </Link>
           <Link
-            href="https://www.petitecurioboutique.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/portfolio/1"
             className="flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow-sm transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105 sm:absolute sm:bottom-0 sm:right-[15%] sm:rotate-6"
           >
             <Image
@@ -151,7 +145,7 @@ export default async function Home({ params }: { params: Params }) {
                 </svg>
                 {t("services.shopify.name")}
               </Link>
-              <Link
+              {/* <Link
                 href="/services/seo"
                 className={cn(linkClass, "bg-slate-50 shadow-sm")}
               >
@@ -169,7 +163,7 @@ export default async function Home({ params }: { params: Params }) {
                   />
                 </svg>
                 {t("services.seo.name")}
-              </Link>
+              </Link> */}
             </main>
           </main>
           <Image
