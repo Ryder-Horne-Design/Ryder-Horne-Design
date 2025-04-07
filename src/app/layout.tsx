@@ -10,6 +10,11 @@ import { type Params, metadata } from "~/components/metadata";
 import { pick } from "lodash";
 import { Toaster } from "~/components/ui/sonner";
 import { WebVitals } from "~/lib/axiom/client";
+import { routing } from "~/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({ params }: { params: Params }) {
   return await metadata({
