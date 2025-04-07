@@ -1,34 +1,33 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import { linkClass } from "~/components/global";
 import { metadata, type Params } from "~/components/metadata";
+import { Link } from "~/i18n/navigation";
 import { cn } from "~/lib/utils";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params,
-}) {
+export async function generateMetadata({ params }: { params: Params }) {
   return await metadata({
     params,
     namespace: "services.design",
   });
-};
+}
 
 export default function DesignServices() {
   const t = useTranslations();
 
   return (
     <main className="p-4">
-      <header className="flex flex-col mb-4 gap-4 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-400 p-4 text-slate-50 shadow lg:basis-1/2 lg:p-6">
+      <header className="bg-linear-to-br mb-4 flex flex-col gap-4 rounded-xl from-sky-500 to-emerald-400 p-4 text-slate-50 shadow-sm lg:basis-1/2 lg:p-6">
         <h1 className="text-4xl">{t("services.design.name")}</h1>
         <p className="text-xl">{t("services.design.description")}</p>
       </header>
-      <main className="flex flex-col lg:flex-row gap-4">
-        <main className="flex flex-col gap-2 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-400 p-4 text-slate-50 shadow lg:basis-1/2 lg:p-6">
+      <main className="flex flex-col gap-4 lg:flex-row">
+        <main className="bg-linear-to-br flex flex-col gap-2 rounded-xl from-sky-500 to-emerald-400 p-4 text-slate-50 shadow-sm lg:basis-1/2 lg:p-6">
           <p className="text-lg">{t("services.design.long_description")}</p>
-          <Link href="/portfolio" className={cn(linkClass, "bg-slate-50 shadow")}>
+          <Link
+            href="/portfolio"
+            className={cn(linkClass, "bg-slate-50 shadow-sm")}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -47,9 +46,9 @@ export default function DesignServices() {
           width={6016}
           height={4016}
           sizes="(min-width: 1024px) 40vw, 80vw"
-          className="relative rounded-xl border-[6px] border-transparent bg-[linear-gradient(to_bottom_right,#0EA5E9,#34D399)] bg-[length:calc(100%+12px)_calc(100%+12px)] bg-[position:-6px_-6px] bg-no-repeat object-cover shadow lg:basis-1/2"
+          className="relative rounded-xl border-[6px] border-transparent bg-[linear-gradient(to_bottom_right,#0EA5E9,#34D399)] bg-[length:calc(100%+12px)_calc(100%+12px)] bg-[position:-6px_-6px] bg-no-repeat object-cover shadow-sm lg:basis-1/2"
         />
       </main>
     </main>
   );
-};
+}

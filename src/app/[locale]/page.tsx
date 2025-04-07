@@ -1,22 +1,27 @@
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { linkClass } from "~/components/global";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
-import { Link } from "~/navigation";
+import { Link } from "~/i18n/navigation";
 import { Architects_Daughter } from "next/font/google";
+import { Params } from "~/components/metadata";
 
 const handwritten = Architects_Daughter({
   display: "swap",
   subsets: ["latin"],
   weight: ["400"],
 });
-export default function Home() {
-  const t = useTranslations();
+export default async function Home({ params }: { params: Params }) {
+  const { locale } = await params;
+
+  setRequestLocale(locale);
+
+  const t = await getTranslations();
 
   return (
     <main className="p-4">
-      <header className="2xl:px-18 -m-4 flex flex-col gap-x-8 gap-y-4 bg-gradient-to-br from-sky-500 to-emerald-400 px-4 py-8 text-slate-50 shadow sm:px-8 sm:py-16 md:px-10 md:py-20 lg:flex-row lg:px-12 lg:py-24 xl:px-14 xl:py-28 2xl:py-36">
+      <header className="2xl:px-18 bg-linear-to-br -m-4 flex flex-col gap-x-8 gap-y-4 from-sky-500 to-emerald-400 px-4 py-8 text-slate-50 shadow-sm sm:px-8 sm:py-16 md:px-10 md:py-20 lg:flex-row lg:px-12 lg:py-24 xl:px-14 xl:py-28 2xl:py-36">
         <main className="flex flex-col lg:basis-1/2">
           <h1 className="text-4xl">{t("hero.title")}</h1>
           <p className="mb-2 text-xl">{t("hero.description")}</p>
@@ -39,7 +44,7 @@ export default function Home() {
             href="https://www.sabercatrobotics.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105 sm:absolute sm:left-[15%] sm:top-0 sm:-rotate-6"
+            className="flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow-sm transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105 sm:absolute sm:left-[15%] sm:top-0 sm:-rotate-6"
           >
             <Image
               src="/assets/hero/sabercat-robotics.png"
@@ -47,7 +52,7 @@ export default function Home() {
               width={1536}
               height={1536}
               sizes="(min-width: 640px) 25vw, 50vw"
-              className="w-full bg-slate-200 shadow"
+              className="w-full bg-slate-200 shadow-sm"
             />
             <p className="text-center">{t("portfolio.websites.sr.name")}</p>
           </Link>
@@ -55,7 +60,7 @@ export default function Home() {
             href="https://www.sistersinstem.net/"
             target="_blank"
             rel="noopener noreferrer"
-            className="z-10 flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105"
+            className="z-10 flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow-sm transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105"
           >
             <Image
               src="/assets/hero/sisters-in-stem.png"
@@ -63,7 +68,7 @@ export default function Home() {
               width={1536}
               height={1536}
               sizes="(min-width: 640px) 25vw, 50vw"
-              className="w-full bg-slate-200 shadow"
+              className="w-full bg-slate-200 shadow-sm"
             />
             <p className="text-center">{t("portfolio.websites.sis.name")}</p>
           </Link>
@@ -71,7 +76,7 @@ export default function Home() {
             href="https://www.petitecurioboutique.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105 sm:absolute sm:bottom-0 sm:right-[15%] sm:rotate-6"
+            className="flex max-h-fit w-48 flex-col items-center justify-center gap-2 bg-white p-4 shadow-sm transition-transform duration-300 hover:z-20 hover:scale-105 focus:z-20 focus:scale-105 sm:absolute sm:bottom-0 sm:right-[15%] sm:rotate-6"
           >
             <Image
               src="/assets/hero/petite-curio-boutique.png"
@@ -79,7 +84,7 @@ export default function Home() {
               width={1536}
               height={1536}
               sizes="(min-width: 640px) 25vw, 50vw"
-              className="w-full bg-slate-200 shadow"
+              className="w-full bg-slate-200 shadow-sm"
             />
             <p className="text-center">{t("portfolio.websites.pcb.name")}</p>
           </Link>
@@ -87,7 +92,7 @@ export default function Home() {
       </header>
       <main className="my-8 flex flex-col gap-4">
         <section className="flex flex-col gap-4 lg:flex-row lg:flex-nowrap">
-          <main className="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-400 p-4 text-slate-50 shadow lg:basis-1/2 lg:p-6">
+          <main className="bg-linear-to-br flex flex-col gap-4 rounded-xl from-sky-500 to-emerald-400 p-4 text-slate-50 shadow-sm lg:basis-1/2 lg:p-6">
             <header className="flex flex-col">
               <h2 className="text-3xl">{t("home.services.title")}</h2>
               <p className="text-xl">{t("home.services.description")}</p>
@@ -95,7 +100,7 @@ export default function Home() {
             <main className="flex flex-wrap gap-2">
               <Link
                 href="/services/design"
-                className={cn(linkClass, "bg-slate-50 shadow")}
+                className={cn(linkClass, "bg-slate-50 shadow-sm")}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +119,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/services/development"
-                className={cn(linkClass, "bg-slate-50 shadow")}
+                className={cn(linkClass, "bg-slate-50 shadow-sm")}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +138,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/services/shopify"
-                className={cn(linkClass, "bg-slate-50 shadow")}
+                className={cn(linkClass, "bg-slate-50 shadow-sm")}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -146,9 +151,9 @@ export default function Home() {
                 </svg>
                 {t("services.shopify.name")}
               </Link>
-              {/* <Link
+              <Link
                 href="/services/seo"
-                className={cn(linkClass, "bg-slate-50 shadow")}
+                className={cn(linkClass, "bg-slate-50 shadow-sm")}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -164,7 +169,7 @@ export default function Home() {
                   />
                 </svg>
                 {t("services.seo.name")}
-              </Link> */}
+              </Link>
             </main>
           </main>
           <Image
@@ -173,13 +178,16 @@ export default function Home() {
             width={6016}
             height={4016}
             sizes="(min-width: 1024px) 40vw, 80vw"
-            className="rounded-xl border-[6px] border-transparent bg-[linear-gradient(to_bottom_right,#0EA5E9,#34D399)] bg-[length:calc(100%+12px)_calc(100%+12px)] bg-[position:-6px_-6px] bg-no-repeat object-cover shadow lg:basis-1/2"
+            className="rounded-xl border-[6px] border-transparent bg-[linear-gradient(to_bottom_right,#0EA5E9,#34D399)] bg-[length:calc(100%+12px)_calc(100%+12px)] bg-[position:-6px_-6px] bg-no-repeat object-cover shadow-sm lg:basis-1/2"
           />
         </section>
-        <section className="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-400 p-4 text-slate-50 shadow lg:p-6">
+        <section className="bg-linear-to-br flex flex-col gap-4 rounded-xl from-sky-500 to-emerald-400 p-4 text-slate-50 shadow-sm lg:p-6">
           <h2 className="text-3xl">{t("home.portfolio.title")}</h2>
           <p className="text-xl">{t("home.portfolio.description")}</p>
-          <Link href="/portfolio" className={cn(linkClass, "bg-slate-50 shadow")}>
+          <Link
+            href="/portfolio"
+            className={cn(linkClass, "bg-slate-50 shadow-sm")}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -193,14 +201,14 @@ export default function Home() {
           </Link>
         </section>
       </main>
-      <footer className="2xl:px-18 -m-4 flex flex-col gap-x-8 gap-y-4 bg-gradient-to-br from-sky-500 to-emerald-400 px-4 py-8 text-slate-50 shadow sm:px-8 sm:py-16 md:px-10 md:py-20 lg:flex-row lg:px-12 lg:py-24 xl:px-14 xl:py-28 2xl:py-36">
+      <footer className="2xl:px-18 bg-linear-to-br -m-4 flex flex-col gap-x-8 gap-y-4 from-sky-500 to-emerald-400 px-4 py-8 text-slate-50 shadow-sm sm:px-8 sm:py-16 md:px-10 md:py-20 lg:flex-row lg:px-12 lg:py-24 xl:px-14 xl:py-28 2xl:py-36">
         <Image
           src="/assets/home/woman-typing-on-macbook.jpg"
           alt={t("home.services.alt")}
           width={6016}
           height={4016}
           sizes="(min-width: 1024px) 40vw, 80vw"
-          className="rounded-xl shadow lg:basis-1/4"
+          className="rounded-xl shadow-sm lg:basis-1/4"
         />
         <main className="flex flex-col lg:basis-3/4">
           <h1 className="text-4xl">{t("home.contact.title")}</h1>
@@ -212,4 +220,4 @@ export default function Home() {
       </footer>
     </main>
   );
-};
+}

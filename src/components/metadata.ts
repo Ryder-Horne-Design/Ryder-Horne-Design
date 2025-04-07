@@ -1,25 +1,26 @@
 import { type Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
-import { defaultLocale, locales } from "~/locales.config";
+import { Locale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { routing } from "~/i18n/routing";
 
-export type Params = {
-  locale?: string,
-};
+export type Params = Promise<{
+  locale: Locale;
+}>;
 export async function metadata({
-  params: { locale },
+  params,
   namespace,
   isRootLayout = false,
   indexable = true,
   delimiter = " - ",
 }: {
-  params: Params,
-  namespace?: string,
-  isRootLayout?: boolean,
-  indexable?: boolean,
-  delimiter?: string,
+  params: Params;
+  namespace?: string;
+  isRootLayout?: boolean;
+  indexable?: boolean;
+  delimiter?: string;
 }): Promise<Metadata> {
-  locale = locale ?? defaultLocale;
+  const { locale } = await params;
   const t = await getTranslations({
     namespace,
     locale,
@@ -30,8 +31,10 @@ export async function metadata({
   const title = t("name");
   const template = "%s" + delimiter + title;
   const description = t("description");
-  const reqHeaders = headers();
-  const url = new URL(reqHeaders.get("x-full-url") ?? "https://ryderhorne.design/");
+  const reqHeaders = await headers();
+  const url = new URL(
+    reqHeaders.get("x-full-url") ?? "https://ryderhorne.design/",
+  );
   const images: {
     url: string | URL;
     secureUrl?: string | URL;
@@ -49,7 +52,7 @@ export async function metadata({
       height: 630,
     },
   ];
-  
+
   const metadata: Metadata = {
     metadataBase: new URL(url.origin),
     title,
@@ -59,7 +62,7 @@ export async function metadata({
       description,
       type: "website",
       locale,
-      alternateLocale: locales.filter((l) => l !== locale),
+      alternateLocale: routing.locales.filter((l) => l !== locale),
       siteName: title,
       url,
       images,
@@ -208,7 +211,7 @@ export async function metadata({
           url: "/assets/favicons/apple-touch-icon-180x180-precomposed.png",
           sizes: "180x180",
         },
-      ],  
+      ],
     },
     robots: {
       index: indexable,
@@ -218,12 +221,15 @@ export async function metadata({
   if (!metadata.openGraph || !metadata.twitter) {
     console.warn("Forgot to set openGraph or twitter in metadata");
     metadata.openGraph = metadata.twitter = {};
-  };
+  }
   if (isRootLayout) {
-    metadata.openGraph.title = metadata.twitter.title = metadata.title = {
-      default: title,
-      template,
-    };
-  };
+    metadata.openGraph.title =
+      metadata.twitter.title =
+      metadata.title =
+        {
+          default: title,
+          template,
+        };
+  }
   return metadata;
-};
+}

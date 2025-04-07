@@ -1,26 +1,26 @@
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { type Params, metadata } from "~/components/metadata";
 import { Button } from "~/components/ui/button";
-import { Link } from "~/navigation";
+import { Link } from "~/i18n/navigation";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params,
-}) {
+export async function generateMetadata({ params }: { params: Params }) {
   return await metadata({
     params,
     namespace: "portfolio.websites.sr",
   });
-};
+}
 
-export default function SabercatRobotics() {
-  const t = useTranslations("portfolio");
+export default async function SabercatRobotics({ params }: { params: Params }) {
+  const { locale } = await params;
+
+  setRequestLocale(locale);
+
+  const t = await getTranslations("portfolio");
 
   return (
     <main className="flex flex-col gap-4 p-4">
-      <header className="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-sky-500 to-emerald-400 p-4 text-slate-50 shadow lg:basis-1/2 lg:p-6">
+      <header className="bg-linear-to-br flex flex-col gap-4 rounded-xl from-sky-500 to-emerald-400 p-4 text-slate-50 shadow-sm lg:basis-1/2 lg:p-6">
         <h1 className="text-4xl">{t("websites.sr.name")}</h1>
         <p className="text-xl">{t("websites.sr.description")}</p>
       </header>
@@ -62,9 +62,9 @@ export default function SabercatRobotics() {
           width={2880}
           height={2048}
           sizes="(min-width: 1024px) 40vw, 80vw"
-          className="h-full rounded-xl shadow lg:basis-1/2"
+          className="h-full rounded-xl shadow-sm lg:basis-1/2"
         />
       </main>
     </main>
   );
-};
+}
