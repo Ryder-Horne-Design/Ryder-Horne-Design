@@ -29,7 +29,7 @@ export const emailRouter = createTRPCRouter({
       `${firstName} ${lastName} <${email}>`,
       "Ryder Horne Design Support <contact@ryderhorne.design>",
     ];
-    const replyTo = `Ryder Horne Design Support <contact@ryderhorne.design>`;
+    const replyTo = "contact@ryderhorne.design";
     const res = await resend.emails.send({
       from,
       to,
