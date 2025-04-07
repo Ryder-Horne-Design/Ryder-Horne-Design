@@ -27,7 +27,7 @@ export const emailRouter = createTRPCRouter({
     const from = `${firstName} ${lastName} <team@contact.ryderhorne.design>`;
     const to = [
       `${firstName} ${lastName} <${email}>`,
-      "Ryder Horne Design Support <contact@ryderhorne.design>",
+      "contact@ryderhorne.design",
     ];
     const replyTo = "contact@ryderhorne.design";
     const res = await resend.emails.send({
