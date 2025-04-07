@@ -24,7 +24,7 @@ export const emailRouter = createTRPCRouter({
   sendContact: publicProcedure.input(contactData).query(async ({ input }) => {
     const { email, firstName, lastName } = input;
     const subject = `Inquiry from ${firstName} ${lastName}`;
-    const from = `${firstName} ${lastName} <team@contact.ryderhorne.design>`;
+    const from = `${firstName} ${lastName} <support@team.ryderhorne.design>`;
     const to = [
       `${firstName} ${lastName} <${email}>`,
       "contact@ryderhorne.design",
