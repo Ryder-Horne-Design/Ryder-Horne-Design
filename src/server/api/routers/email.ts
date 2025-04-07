@@ -30,9 +30,10 @@ export const emailRouter = createTRPCRouter({
     const from = `${firstName} ${lastName} <support@team.ryderhorne.design>`;
     const to = [
       `${firstName} ${lastName} <${email}>`,
-      "contact@ryderhorne.design",
+      // contact@ryderhorne.design does not send to the Google Group for some reason; find a fix if possible
+      "Ryder Horne <ryder@ryderhorne.com>",
     ];
-    const replyTo = "contact@ryderhorne.design";
+    const replyTo = "Ryder Horne Design Support <contact@ryderhorne.design>";
     const react = await ContactEmail({
       name: `${firstName} ${lastName}`,
       input,
