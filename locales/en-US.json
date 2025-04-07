@@ -7,6 +7,7 @@
     "view": "View our portfolio"
   },
   "alt": "Ryder Horne Design logo, containing a blue to green gradient with coding brackets in the middle.",
+  "banner": "Ryder Horne Design: An agency which makes brilliant web design ideas easy to accomplish.",
   "home": {
     "title": "Home",
     "services": {
@@ -188,10 +189,7 @@
       },
       "submit": "Submit",
       "status": {
-        "pending": {
-          "title": "Sending...",
-          "description": "Our server is working on sending your message."
-        },
+        "pending": "Sending...",
         "success": {
           "title": "Thank you!",
           "description": "We've received your message and will be in touch soon."
@@ -200,6 +198,13 @@
           "title": "Error",
           "description": "Something went wrong. Please try again."
         }
+      },
+      "confirmation_email": {
+        "title": "Thank you for contacting Ryder Horne Design",
+        "preview": "Thank you for reaching out to us! We'll be in touch soon.",
+        "text": "Thank you for reaching out to us, {name}! Our team will be in touch with you soon. If you don't hear back within the next 2 business days, please feel free to follow up with us. Thank you for choosing Ryder Horne Design.",
+        "info": "Information",
+        "input": "{field}: {value}"
       }
     },
     "other": {
@@ -220,6 +225,7 @@
   },
   "menu": "Menu",
   "close": "Close Menu",
+  "language": "Language",
   "404": {
     "name": "Page Not Found",
     "description": "The page you're looking for doesn't exist.",

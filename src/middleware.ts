@@ -1,5 +1,5 @@
 import createIntlMiddleware from "next-intl/middleware";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { routing } from "./i18n/routing";
 
 const handleI18nRouting = createIntlMiddleware(routing);
@@ -16,14 +16,12 @@ const rewritePaths = [
 export default function middleware(req: NextRequest) {
   const url = req.nextUrl;
   if (url.pathname === "/sitemap.xml") {
-    return;
+    return NextResponse.next();
   }
   for (const { src, dest } of rewritePaths) {
     if (url.pathname === src) {
       const newUrl = new URL(dest, url.origin);
-      const newReq = new NextRequest(newUrl, {
-        ...req,
-      });
+      const newReq = new NextRequest(newUrl, req);
       req = newReq;
       break;
     }

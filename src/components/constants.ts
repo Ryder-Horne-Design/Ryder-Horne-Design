@@ -1,4 +1,6 @@
-const countries: [string, ...string[]] = [
+import { type Locale } from "next-intl";
+
+const countries = [
   "us",
   "ca",
   "uk",
@@ -50,13 +52,17 @@ const countries: [string, ...string[]] = [
   "my",
   "hk",
   "other",
-];
+] as const satisfies [string, ...string[]];
 
-const services: [string, ...string[]] = [
+const services = [
   "design",
   "development",
   "shopify",
   "seo",
-];
+] as const satisfies [string, ...string[]];
 
-export { countries, services };
+const languages = {
+  "en-US": "English (United States)",
+} as const satisfies Record<Locale, string>;
+
+export { countries, services, languages };

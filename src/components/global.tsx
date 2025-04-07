@@ -20,13 +20,13 @@ import {
 import { Logo } from "./logos";
 
 export const linkClass =
-  "px-6 py-3 flex items-center max-w-max gap-1 bg-transparent transition-colors duration-300 hover:bg-slate-900 focus:bg-slate-900 hover:text-slate-50 focus:text-slate-50 rounded-full text-base text-slate-900";
+  "px-6 py-3 flex items-center max-w-max gap-1 bg-transparent transition-colors duration-300 hover:bg-slate-900 focus:bg-slate-900 hover:text-slate-50 focus:text-slate-50 rounded-full text-base text-slate-900 cursor-pointer";
 
 export function Header() {
   const t = useTranslations();
 
   return (
-    <header className="backdrop-blur-xs sticky top-0 z-50 flex flex-col items-center justify-center border-b-2 bg-slate-50 p-4 supports-[backdrop-filter:blur(4px)]:bg-slate-50/70 md:flex-row md:justify-between">
+    <header className="backdrop-blur-xs sticky top-0 z-50 flex flex-col items-center justify-center border-b-2 border-slate-200 bg-slate-50 p-4 supports-[backdrop-filter:blur(4px)]:bg-slate-50/70 md:flex-row md:justify-between">
       <Link href="/" className="flex items-center justify-center">
         <Logo
           className="mr-2 hidden h-8 w-8 min-[330px]:flex"
@@ -52,7 +52,7 @@ export function Header() {
           {t("menu")}
         </SheetTrigger>
         <SheetContent className="flex min-h-screen flex-col">
-          <SheetHeader className="border-b">
+          <SheetHeader className="border-b border-slate-200">
             <SheetTitle className="text-3xl">{t("menu")}</SheetTitle>
           </SheetHeader>
           <main className="flex flex-col gap-2 overflow-y-scroll">
@@ -334,7 +334,7 @@ export function Header() {
               {t("sitemap.name")}
             </Link>
           </main>
-          <SheetFooter className="mt-auto space-y-2 space-y-reverse border-t py-2 sm:space-y-0">
+          <SheetFooter className="mt-auto space-y-2 space-y-reverse border-t border-slate-200 py-2 sm:space-y-0">
             <SheetClose asChild>
               <Button variant="outline">{t("close")}</Button>
             </SheetClose>
@@ -349,15 +349,18 @@ export function Footer() {
   const t = useTranslations();
 
   return (
-    <footer className="mt-auto flex flex-col justify-center border-t-2 bg-slate-50 p-4">
-      <Link href="/" className="flex items-center border-b-2 p-2">
+    <footer className="mt-auto flex flex-col justify-center border-t-2 border-slate-200 bg-slate-50 p-4">
+      <Link
+        href="/"
+        className="flex items-center border-b-2 border-slate-200 p-2"
+      >
         <Logo
           className="mr-2 hidden h-8 w-8 min-[330px]:flex"
           role="presentation"
         />
         <h2 className="text-xl min-[300px]:text-2xl">{t("name")}</h2>
       </Link>
-      <main className="flex flex-col flex-wrap gap-2 border-b-2 py-2 md:flex-row">
+      <main className="flex flex-col flex-wrap gap-2 border-b-2 border-slate-200 py-2 md:flex-row">
         <Link href="/" className={linkClass}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -10,6 +10,7 @@ import {
   createRef,
   useEffect,
 } from "react";
+import { logger } from "~/lib/axiom/client";
 import { cn } from "~/lib/utils";
 
 const AccordionTypeContext = createContext<AccordionType>("single");
@@ -60,7 +61,7 @@ const AccordionItem = forwardRef<
 >(function ({ className, children, value, ...props }, ref) {
   const type = useContext(AccordionTypeContext);
   if (values.has(value)) {
-    console.warn("AccordionItem value must be unique");
+    logger.warn("AccordionItem value must be unique");
   }
   values.add(value);
   const valueState = useState<string>("");
@@ -120,7 +121,7 @@ AccordionTrigger.displayName = "AccordionTrigger";
 const AccordionContent = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(function ({ className, ...props }) {
+>(function ({ className, ...props }, _ref) {
   const accordionType = useContext(AccordionTypeContext);
   const [open] = useContext(OpenContext);
   const value = useContext(ValueContext);

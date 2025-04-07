@@ -1,8 +1,9 @@
 import { type Metadata } from "next";
 import { headers } from "next/headers";
-import { Locale } from "next-intl";
+import type { Locale, Messages, NamespaceKeys, NestedKeyOf } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "~/i18n/routing";
+import { logger } from "~/lib/axiom/server";
 
 export type Params = Promise<{
   locale: Locale;
@@ -15,7 +16,7 @@ export async function metadata({
   delimiter = " - ",
 }: {
   params: Params;
-  namespace?: string;
+  namespace?: NamespaceKeys<Messages, NestedKeyOf<Messages>>;
   isRootLayout?: boolean;
   indexable?: boolean;
   delimiter?: string;
@@ -35,23 +36,23 @@ export async function metadata({
   const url = new URL(
     reqHeaders.get("x-full-url") ?? "https://ryderhorne.design/",
   );
-  const images: {
+  const images = [
+    {
+      url: "http://ryderhorne.design/assets/og/banner.png",
+      secureUrl: "https://ryderhorne.design/assets/og/banner.png",
+      alt: altT("banner"),
+      type: "image/png",
+      width: 1200,
+      height: 630,
+    },
+  ] as const satisfies {
     url: string | URL;
     secureUrl?: string | URL;
     alt?: string;
     type?: string;
     width?: string | number;
     height?: string | number;
-  }[] = [
-    {
-      url: "http://ryderhorne.design/assets/og/banner.png",
-      secureUrl: "https://ryderhorne.design/assets/og/banner.png",
-      alt: altT("alt"),
-      type: "image/png",
-      width: 1200,
-      height: 630,
-    },
-  ];
+  }[];
 
   const metadata: Metadata = {
     metadataBase: new URL(url.origin),
@@ -219,7 +220,7 @@ export async function metadata({
     },
   };
   if (!metadata.openGraph || !metadata.twitter) {
-    console.warn("Forgot to set openGraph or twitter in metadata");
+    logger.warn("Forgot to set openGraph or twitter in metadata");
     metadata.openGraph = metadata.twitter = {};
   }
   if (isRootLayout) {

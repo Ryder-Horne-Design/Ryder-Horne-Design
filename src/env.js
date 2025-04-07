@@ -8,10 +8,7 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
-    GMAIL_CLIENT_ID: z.string().endsWith(".apps.googleusercontent.com"),
-    GMAIL_CLIENT_SECRET: z.string(),
-    GMAIL_REFRESH_TOKEN: z.string().startsWith("1/"),
-    GMAIL_ACCESS_TOKEN: z.string().startsWith("ya29."),
+    RESEND_API_KEY: z.string().startsWith("re_"),
   },
 
   /**
@@ -20,7 +17,8 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_AXIOM_TOKEN: z.string().startsWith("xaat-"),
+    NEXT_PUBLIC_AXIOM_DATASET: z.string(),
   },
 
   /**
@@ -29,11 +27,9 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    GMAIL_CLIENT_ID: process.env.GMAIL_CLIENT_ID,
-    GMAIL_CLIENT_SECRET: process.env.GMAIL_CLIENT_SECRET,
-    GMAIL_REFRESH_TOKEN: process.env.GMAIL_REFRESH_TOKEN,
-    GMAIL_ACCESS_TOKEN: process.env.GMAIL_ACCESS_TOKEN,
-    // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    NEXT_PUBLIC_AXIOM_TOKEN: process.env.NEXT_PUBLIC_AXIOM_TOKEN,
+    NEXT_PUBLIC_AXIOM_DATASET: process.env.NEXT_PUBLIC_AXIOM_DATASET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

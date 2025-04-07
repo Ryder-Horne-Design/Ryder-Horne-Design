@@ -1,59 +1,50 @@
+import { Resend } from "resend";
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "../trpc";
 import { countries, services } from "~/components/constants";
-import { locales } from "~/locales.config";
-import { createTransport } from "nodemailer";
 import { env } from "~/env";
+import { routing } from "~/i18n/routing";
+import { createTRPCRouter, publicProcedure } from "../trpc";
+import { ContactEmail } from "~/components/emails";
+import { logger } from "~/lib/axiom/server";
 
-const transport = createTransport({
-  host: "mail.google.com",
-  service: "gmail",
-  port: 465,
-  secure: true,
-  auth: {
-    type: "oauth2",
-    user: "ryder@ryderhorne.com",
-    clientId: env.GMAIL_CLIENT_ID,
-    clientSecret: env.GMAIL_CLIENT_SECRET,
-    refreshToken: env.GMAIL_REFRESH_TOKEN,
-    accessToken: env.GMAIL_ACCESS_TOKEN,
-  },
+export const contactData = z.object({
+  email: z.string().email(),
+  business: z.string(),
+  project: z.string(),
+  services: z.array(z.enum(services)),
+  website: z.string().url().optional(),
+  country: z.enum(countries),
+  firstName: z.string().min(2),
+  lastName: z.string().min(2),
+  language: z.enum(routing.locales),
 });
+
+const resend = new Resend(env.RESEND_API_KEY);
 export const emailRouter = createTRPCRouter({
-  sendContact: publicProcedure.input(z.object({
-    email: z.string().email(),
-    business: z.string(),
-    project: z.string(),
-    services: z.array(z.enum(services)),
-    website: z.string().url().optional(),
-    country: z.enum(countries),
-    firstName: z.string().min(2),
-    lastName: z.string().min(2),
-    language: z.enum(locales),
-  })).query(async ({ input }) => {
-    try {
-      await transport.verify();
-      const { email, business, project, services, website, country, firstName, lastName, language } = input;
-      const body = `First name: ${firstName}\nLast name: ${lastName}\nEmail: ${email}\nBusiness: ${business}\nProject: ${project}\nServices: ${services.join(", ")}\nWebsite: ${website ? website : "N/A"}\nCountry: ${country}\nLanguage: ${language}`;
-      const subject = `Inquiry from ${firstName} ${lastName}`;
-      const from = `${firstName} ${lastName} <contact@ryderhorne.design>`;
-      const to = `Ryder Horne Design Support <contact@ryderhorne.design>`;
-      const replyTo = `${firstName} ${lastName} <${email}>`;
-      await transport.sendMail({
-        from,
-        to,
-        replyTo,
-        subject,
-        text: body,
-      });
-      return {
-        success: true
-      };
-    } catch (e) {
-      console.error(e);
-      return {
-        success: false,
-      };
+  sendContact: publicProcedure.input(contactData).query(async ({ input }) => {
+    const { email, firstName, lastName, language: locale } = input;
+    const subject = `Inquiry from ${firstName} ${lastName}`;
+    const from = `${firstName} ${lastName} <team@contact.ryderhorne.design>`;
+    const to = `${firstName} ${lastName} <${email}>`;
+    const bcc = `Ryder Horne Design Support <contact@ryderhorne.design>`;
+    const res = await resend.emails.send({
+      from,
+      to,
+      bcc,
+      subject,
+      react: await ContactEmail({
+        name: `${firstName} ${lastName}`,
+        input,
+        locale,
+      }),
+    });
+    if (res.error) {
+      logger.error(
+        `[sendContact] ${res.error.name}: ${res.error.message}`,
+        res.error,
+      );
+      throw new Error(res.error.message, { cause: res.error.name });
     }
+    return res;
   }),
 });

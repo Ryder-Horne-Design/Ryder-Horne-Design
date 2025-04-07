@@ -9,6 +9,7 @@ import { Header, Footer } from "~/components/global";
 import { type Params, metadata } from "~/components/metadata";
 import { pick } from "lodash";
 import { Toaster } from "~/components/ui/sonner";
+import { WebVitals } from "~/lib/axiom/client";
 
 export async function generateMetadata({ params }: { params: Params }) {
   return await metadata({
@@ -35,6 +36,7 @@ export default async function RootLayout({
       className="scroll-smooth bg-slate-50 subpixel-antialiased selection:bg-slate-200/60"
       lang={locale}
     >
+      <WebVitals />
       <body
         className={cn(
           "flex min-h-screen flex-col fill-slate-900 text-lg text-slate-900",

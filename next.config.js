@@ -16,6 +16,15 @@ const config = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "ryderhorne.design",
+        pathname: "/assets/**",
+      },
+    ],
+  },
   async redirects() {
     return [
       {

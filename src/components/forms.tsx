@@ -69,7 +69,7 @@ export function ContactForm() {
       lastName: "",
       email: "",
       country: "us",
-      website: "",
+      website: undefined,
       business: "",
       project: "",
       services: [],
@@ -78,22 +78,20 @@ export function ContactForm() {
   });
 
   async function sendContact(data: z.infer<typeof contactForm>) {
-    toast(t("status.pending.title"), {
-      description: t("status.pending.description"),
-    });
-    const res = await sendContactAction({
-      ...data,
-      language: locale,
-    });
-    if (res.success) {
-      toast(t("status.success.title"), {
-        description: t("status.success.description"),
-      });
-    } else {
-      toast(t("status.error.title"), {
-        description: t("status.error.description"),
-      });
-    }
+    toast.promise(
+      async () => await sendContactAction({ ...data, language: locale }),
+      {
+        loading: t("status.pending"),
+        success: {
+          description: t("status.success.description"),
+          message: t("status.success.title"),
+        },
+        error: {
+          description: t("status.error.description"),
+          message: t("status.error.title"),
+        },
+      },
+    );
   }
 
   return (
@@ -168,7 +166,7 @@ export function ContactForm() {
                       <SelectSeparator />
                       {countries.map((country) => (
                         <SelectItem key={country} value={country}>
-                          {t("country.options." + country)}
+                          {t(`country.options.${country}`)}
                         </SelectItem>
                       ))}
                     </SelectGroup>
@@ -187,7 +185,21 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>{t("website.label")}</FormLabel>
               <FormControl>
-                <Input placeholder={t("website.placeholder")} {...field} />
+                <Input
+                  placeholder={t("website.placeholder")}
+                  {...field}
+                  onChange={(event) => {
+                    if (event.target.value === "") {
+                      field.onChange({
+                        ...event,
+                        target: { ...event.target, value: undefined },
+                      });
+                    } else {
+                      field.onChange(event.target.value);
+                    }
+                  }}
+                  value={field.value ?? ""}
+                />
               </FormControl>
               <FormDescription>{t("website.description")}</FormDescription>
               <FormMessage />
@@ -255,7 +267,7 @@ export function ContactForm() {
                           />
                         </FormControl>
                         <FormLabel className="text-sm font-normal">
-                          {useTranslations("services")(service + ".name")}
+                          {useTranslations("services")(`${service}.name`)}
                         </FormLabel>
                       </FormItem>
                     );
