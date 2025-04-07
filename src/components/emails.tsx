@@ -65,9 +65,9 @@ export async function ContactEmail({
         <title>{t("title")}</title>
       </Head>
       <Tailwind>
-        <Body className="m-auto bg-slate-50 p-4 font-sans text-lg text-slate-950">
+        <Body className="m-auto p-4 font-sans text-lg text-slate-950">
           <Preview>{t("preview")}</Preview>
-          <Container className="rounded-3xl border-2 border-solid border-slate-200 p-4 shadow-lg">
+          <Container className="rounded-3xl border-2 border-solid border-slate-200 bg-slate-50 p-4 shadow-lg">
             <Section className="mb-6">
               <Img {...nextImg} className="rounded-xl" />
             </Section>

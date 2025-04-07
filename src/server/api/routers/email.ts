@@ -6,6 +6,7 @@ import { routing } from "~/i18n/routing";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { ContactEmail } from "~/components/emails";
 import { logger } from "~/lib/axiom/server";
+import { getTranslations } from "next-intl/server";
 
 export const contactData = z.object({
   email: z.string().email(),
@@ -22,8 +23,9 @@ export const contactData = z.object({
 const resend = new Resend(env.RESEND_API_KEY);
 export const emailRouter = createTRPCRouter({
   sendContact: publicProcedure.input(contactData).query(async ({ input }) => {
+    const t = await getTranslations("contact.form.confirmation_email");
     const { email, firstName, lastName } = input;
-    const subject = `Inquiry from ${firstName} ${lastName}`;
+    const subject = t("title");
     const from = `${firstName} ${lastName} <support@team.ryderhorne.design>`;
     const to = [
       `${firstName} ${lastName} <${email}>`,
