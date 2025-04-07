@@ -78,7 +78,11 @@ export async function ContactEmail({
             <Section className="text-sm text-slate-500">
               <Text className="my-0 text-base font-semibold">{t("info")}</Text>
               {Object.keys(input).map((key) => {
-                if (key !== "services" && key !== "language") {
+                if (
+                  key !== "services" &&
+                  key !== "language" &&
+                  key !== "country"
+                ) {
                   const field =
                     key !== "firstName" && key !== "lastName"
                       ? formT(
@@ -87,6 +91,21 @@ export async function ContactEmail({
                       : formT(
                           `name.${(key as keyof Pick<typeof input, "firstName" | "lastName">).replace("Name", "") as "first" | "last"}.label`,
                         );
+
+                  return (
+                    <Text className="m-0 pl-2" key={key}>
+                      {t("input", {
+                        field,
+                        value:
+                          input[key as keyof Omit<typeof input, "services">] ??
+                          "N/A",
+                      })}
+                    </Text>
+                  );
+                } else if (key === "country") {
+                  const field = formT(
+                    `country.options.${input[key as keyof Pick<typeof input, "country">]}`,
+                  );
 
                   return (
                     <Text className="m-0 pl-2" key={key}>
