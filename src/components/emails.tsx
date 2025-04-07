@@ -103,17 +103,18 @@ export async function ContactEmail({
                     </Text>
                   );
                 } else if (key === "country") {
-                  const field = formT(
-                    `country.options.${input[key as keyof Pick<typeof input, "country">]}`,
+                  const field = formT("country.label");
+                  const value = formT(
+                    `country.options.${
+                      input[key as keyof Pick<typeof input, "country">]
+                    }`,
                   );
 
                   return (
                     <Text className="m-0 pl-2" key={key}>
                       {t("input", {
                         field,
-                        value:
-                          input[key as keyof Omit<typeof input, "services">] ??
-                          "N/A",
+                        value,
                       })}
                     </Text>
                   );
