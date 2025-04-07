@@ -22,20 +22,22 @@ export const contactData = z.object({
 const resend = new Resend(env.RESEND_API_KEY);
 export const emailRouter = createTRPCRouter({
   sendContact: publicProcedure.input(contactData).query(async ({ input }) => {
-    const { email, firstName, lastName, language: locale } = input;
+    const { email, firstName, lastName } = input;
     const subject = `Inquiry from ${firstName} ${lastName}`;
     const from = `${firstName} ${lastName} <team@contact.ryderhorne.design>`;
-    const to = `${firstName} ${lastName} <${email}>`;
-    const bcc = `Ryder Horne Design Support <contact@ryderhorne.design>`;
+    const to = [
+      `${firstName} ${lastName} <${email}>`,
+      "Ryder Horne Design Support <contact@ryderhorne.design>",
+    ];
+    const replyTo = `Ryder Horne Design Support <contact@ryderhorne.design>`;
     const res = await resend.emails.send({
       from,
       to,
-      bcc,
+      replyTo,
       subject,
       react: await ContactEmail({
         name: `${firstName} ${lastName}`,
         input,
-        locale,
       }),
     });
     if (res.error) {
