@@ -7,6 +7,7 @@ import { createTRPCRouter, publicProcedure } from "../trpc";
 import { ContactEmail } from "~/components/emails";
 import { logger } from "~/lib/axiom/server";
 import { getTranslations } from "next-intl/server";
+import { render } from "@react-email/components";
 
 export const contactData = z.object({
   email: z.string().email(),
@@ -32,15 +33,20 @@ export const emailRouter = createTRPCRouter({
       "contact@ryderhorne.design",
     ];
     const replyTo = "contact@ryderhorne.design";
+    const react = await ContactEmail({
+      name: `${firstName} ${lastName}`,
+      input,
+    });
+    const text = await render(react, {
+      plainText: true,
+    });
     const res = await resend.emails.send({
       from,
       to,
       replyTo,
       subject,
-      react: await ContactEmail({
-        name: `${firstName} ${lastName}`,
-        input,
-      }),
+      react,
+      text,
     });
     if (res.error) {
       logger.error(
