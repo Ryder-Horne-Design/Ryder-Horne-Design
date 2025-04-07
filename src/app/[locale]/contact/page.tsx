@@ -64,7 +64,7 @@ export default async function Contact({ params }: { params: Params }) {
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
           <Link
-            href="/contact/email"
+            href="mailto:contact@ryderhorne.design"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(linkClass, "bg-slate-50 shadow-sm")}
@@ -120,7 +120,7 @@ export default async function Contact({ params }: { params: Params }) {
             @ryderhornedesign
           </Link>
           <Link
-            href="/contact/x"
+            href="https://x.com/rhd_az"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(linkClass, "bg-slate-50 shadow-sm")}

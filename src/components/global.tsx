@@ -265,7 +265,7 @@ export function Header() {
                     @ryderhornedesign
                   </Link>
                   <Link
-                    href="/contact/x"
+                    href="https://x.com/rhd_az"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={linkClass}
